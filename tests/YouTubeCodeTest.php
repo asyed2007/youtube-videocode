@@ -6,13 +6,6 @@ use ASyed2007\YouTube\YouTubeCode;
 
 class YouTubeCodeTest extends TestCase
 {
-    public function testGetHello()
-    {
-        $object = new YouTubeCode();
-
-        $this->assertSame('Hello, World!', $object->getHello());
-    }
-
     public function testGetCode()
     {
         $yt = new YouTubeCode();

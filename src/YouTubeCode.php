@@ -18,16 +18,6 @@ namespace ASyed2007\YouTube;
 class YouTubeCode
 {
     /**
-     * Returns a simple and friendly message.
-     *
-     * @return string
-     */
-    public function getHello()
-    {
-        return 'Hello, World!';
-    }
-
-    /**
      * Returns the youtube video code.
      *
      * @return string
@@ -35,21 +25,15 @@ class YouTubeCode
     public function getCode($url)
     {
         $code = "";
+        $patterns = ['/(\?|&)v=([^&#]+)/', '/(\.be\/)+([^\/]+)/', '/(\/embed\/)+([^\/]+)/'];
 
-        preg_match('/(\?|&)v=([^&#]+)/', $url, $matches1);
-        if (count($matches1)) {
-            $code = $matches1[2];
+        foreach ($patterns as $pattern) {
+            preg_match($pattern, $url, $matches);
+            if (count($matches)) {
+                $code = $matches[2];
+            }
         }
 
-        preg_match('/(\.be\/)+([^\/]+)/', $url, $matches2);
-        if (count($matches2)) {
-            $code = $matches2[2];
-        }
-
-        preg_match('/(\/embed\/)+([^\/]+)/', $url, $matches3);
-        if (count($matches3)) {
-            $code = $matches3[2];
-        }
 
         $code = preg_replace('/\?.*/', "", $code);
 
