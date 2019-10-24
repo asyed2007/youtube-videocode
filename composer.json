@@ -1,0 +1,69 @@
+{
+    "name": "asyed2007\/youtube\u002Dvideocode",
+    "description": "This\u0020package\u0020helps\u0020with\u0020parsing\u0020various\u0020youtube\u0020urls\u0020to\u0020get\u0020you\u0020the\u0020video\u0020id\u0020from\u0020the\u0020URLs",
+    "type": "library",
+    "keywords": ["YouTube", "Video", "Video\u0020code"],
+    "homepage": "https://github.com/asyed2007/youtube\u002Dvideocode",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ali\u0020Syed",
+            "email": "qali923\u0040gmail.com",
+            "homepage": "https\u003A\/\/localhost"
+        }
+    ],
+    "support": {
+        "docs": "https://asyed2007.github.io/youtube\u002Dvideocode/",
+        "issues": "https://github.com/asyed2007/youtube\u002Dvideocode/issues",
+        "rss": "https://github.com/asyed2007/youtube\u002Dvideocode/releases.atom",
+        "source": "https://github.com/asyed2007/youtube\u002Dvideocode.git",
+        "wiki": "https://github.com/asyed2007/youtube\u002Dvideocode/wiki"
+    },
+    "require": {
+        "php": "^7.2"
+    },
+    "require-dev": {
+        "jakub-onderka/php-parallel-lint": "^1",
+        "mockery/mockery": "^1",
+        "phpstan/phpstan": "^0.11",
+        "phpstan/phpstan-mockery": "^0.11",
+        "phpunit/phpunit": "^8",
+        "squizlabs/php_codesniffer": "^3"
+    },
+    "autoload": {
+        "psr-4": {
+            "ASyed2007\\YouTube\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ASyed2007\\YouTube\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "lint": "parallel-lint src tests",
+        "phpcs": "phpcs src tests --standard=psr12 -sp --colors",
+        "phpstan": [
+            "phpstan analyse src -c phpstan.neon --level max --no-progress",
+            "phpstan analyse tests -c phpstan.neon --level 4 --no-progress"
+        ],
+        "phpunit": "phpunit --verbose --colors=always",
+        "phpunit-ci": "phpunit --verbose --coverage-clover build/logs/clover.xml",
+        "phpunit-coverage": "phpunit --verbose --colors=always --coverage-html build/coverage",
+        "test": [
+            "@lint",
+            "@phpcs",
+            "@phpstan",
+            "@phpunit"
+        ],
+        "test-ci": [
+            "@lint",
+            "@phpcs",
+            "@phpstan",
+            "@phpunit-ci"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
