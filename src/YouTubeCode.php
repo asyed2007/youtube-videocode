@@ -10,7 +10,6 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 
-
 namespace ASyed2007\YouTube;
 
 /**

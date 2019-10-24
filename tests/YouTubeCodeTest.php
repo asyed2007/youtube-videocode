@@ -19,6 +19,7 @@ class YouTubeCodeTest extends TestCase
         $this->assertSame('w4d5O4O8TxU', $yt->getCode("https://www.youtube.com/watch?v=w4d5O4O8TxU"));
         $this->assertSame('w4d5O4O8TxU', $yt->getCode("https://youtu.be/w4d5O4O8TxU"));
         $this->assertSame('w4d5O4O8TxU', $yt->getCode("https://youtube.com/embed/w4d5O4O8TxU"));
-        //$this->assertSame('kkKR-R6QmRA', $yt->getCode('https://www.youtube.com/embed/kkKR-R6QmRA?wmode=opaque&controls=&modestbranding=1'));
+        //$this->assertSame('kkKR-R6QmRA',
+        //$yt->getCode('https://www.youtube.com/embed/kkKR-R6QmRA?wmode=opaque&controls=&modestbranding=1'));
     }
 }
