@@ -35,21 +35,23 @@ class YouTubeCode
      */
     public function getCode($url)
     {
+        $code = "";
+
         preg_match('/(\?|&)v=([^&#]+)/', $url, $matches1);
         if (count($matches1)) {
-            return $matches1[2];
+            $code = $matches1[2];
         }
 
         preg_match('/(\.be\/)+([^\/]+)/', $url, $matches2);
         if (count($matches2)) {
-            return $matches2[2];
+            $code = $matches2[2];
         }
 
         preg_match('/(\/embed\/)+([^\/]+)/', $url, $matches3);
         if (count($matches3)) {
-            return $matches3[2];
+            $code = $matches3[2];
         }
 
-        return "";
+        return $code;
     }
 }
