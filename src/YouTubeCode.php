@@ -51,6 +51,8 @@ class YouTubeCode
             $code = $matches3[2];
         }
 
+        $code = preg_replace('/\?.*/', "", $code);
+
         return $code;
     }
 }
